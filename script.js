@@ -24,8 +24,13 @@ function divide(a, b) {
 }
 
 // Testing in the console
-console.log("Addition Test: ", add(5, 3)); // Should output 8
-console.log("Subtraction Test: ", subtract(5, 3)); // Should output 2
-console.log("Multiplication Test: ", multiply(5, 3)); // Should output 15
-console.log("Division Test: ", divide(10, 2)); // Should output 5
-console.log("Division Test with 0: ", divide(10, 20)); // Should output "Cannot divide by zero!"
+// console.log("Addition Test: ", add(5, 3)); 
+// console.log("Subtraction Test: ", subtract(5, 3));
+// console.log("Multiplication Test: ", multiply(5, 3));
+// console.log("Division Test: ", divide(10, 2));
+// console.log("Division Test with 0: ", divide(10, 20)); 
+
+// Define the variables for the parts of the calculator operation
+let firstNumber = 3;
+let operator = '+';
+let secondNumber = 5;
