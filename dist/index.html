@@ -4,7 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="output.css" />
   </head>
-  <body></body>
+  <body
+    class="bg-slate-400 text-[#3651c4] flex items-center justify-center min-h-screen"
+  >
+    <div class="calulator">
+      <div id="output">
+        <div id="previous-operand"></div>
+        <div id="current-operand"></div>
+      </div>
+      <div class="keypad bg-white text-xl w-full px-4 py-3 rounded-lg">
+        <div
+          class="flex justify-around items-center my-5 [&>*]:px-4 [&>*]:py-1 [&>*]:rounded [&>*:active]:scale-95"
+        >
+          <button id="clear" class="text-white bg-red-600">Clear</button>
+          <button id="delete" class="border border-black text-black">
+            DEL
+          </button>
+        </div>
+        <div class="grid grid-cols-12">
+          <div
+            class="numbers col-span-10 grid grid-cols-4 gap-9 [&>*:hover]:bg-blue-900 [&>*]:rounded [&>*:hover]:text-white [&>*:active]:scale-90"
+          >
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>/</button>
+            <button>0</button>
+            <button>00</button>
+            <button>.</button>
+            <button>*</button>
+            <button id="equal" class="col-span-3 bg-[#3650c45c] text-white">
+              =
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
