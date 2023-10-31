@@ -1,52 +1,81 @@
-// function for the basic math operation
+// variable for calculation operation
+let firstOperand = "";
+let operation = "";
+let secondOperand = "";
+
+// Dom Elements
+let previousOperand = document.getElementById("first-operand");
+let currentOperand = document.getElementById("second-operand");
+let numberButtons = document.querySelectorAll("data-number");
+let operationButtons = document.querySelectorAll("data-operation");
+let clearButton = document.getElementById("clear");
+let deleteButton = document.getElementById("delete");
+let equalButton = document.getElementById("equal");
+
+
+// add eventlistener to the number
+numberButtons.forEach((button) => {
+  button.addEventListener('click', ()=>{
+    let value = button.innerText
+    console.log(value);
+    computation.updateDisplay(value);
+  });
+});
+
+// function takes an operator and 2 numbers
+function operate(operator, a, b) {
+  if (operator === "+") {
+    return add(a, b);
+  } else if (operator === "-") {
+    return subtract(a, b);
+  } else if (operator === "*") {
+    return multiply(a, b);
+  } else if (operator === "/") {
+    return divide(a, b);
+  } else {
+    return "error";
+  }
+}
+
+// operation function
 // Addition
 function add(a, b) {
-    return a + b;
+  return a + b;
 }
 
 // Subtraction
 function subtract(a, b) {
-    return a - b;
+  return a - b;
 }
 
 // Multiplication
 function multiply(a, b) {
-    return a * b;
+  return a * b;
 }
 
 // Division
 function divide(a, b) {
-    if (b === 0) {
-        return "Non!";
-    } else {
-        return a / b;
-    }
+  if (b === 0) {
+    return "Error";
+  } else {
+    return a / b;
+  }
 }
+
 
 // Testing in the console
-// console.log("Addition Test: ", add(5, 3)); 
-// console.log("Subtraction Test: ", subtract(5, 3));
-// console.log("Multiplication Test: ", multiply(5, 3));
-// console.log("Division Test: ", divide(10, 2));
-// console.log("Division Test with 0: ", divide(10, 0)); 
+// const a = 10;
+// const b = 5;
 
-// Define the variables for the parts of the calculator operation
-let firstNumber = 3;
-let operator = '+';
-let secondNumber = 5;
+// console.log("Addition:", add(a, b));
+// console.log("Subtraction:", subtract(a, b));
+// console.log("Multiplication:", multiply(a, b));
+// console.log("Division:", divide(a, b));
+// console.log("Division")
 
-// Create a new function operate that takes an operator and 2 numbers
-function operate(operator, a, b) {
-    switch (operator) {
-        case '+':
-            return add(a, b);
-        case '-':
-            return subtract(a, b);
-        case '*':
-            return multiply(a, b);
-        case '/':
-            return divide(a, b);
-        default:
-            return "Invalid operator!";
-    }
-}
+// Testing the operate function in the console
+console.log("Operate Test Addition: ", operate("+", 5, 3));
+console.log("Operate Test Subtraction: ", operate("-", 5, 3));
+console.log("Operate Test Multiplication: ", operate("*", 5, 3));
+console.log("Operate Test Division: ", operate("/", 10, 2));
+console.log("Operate Test Invalid Operator: ", operate("%", 5, 3));
