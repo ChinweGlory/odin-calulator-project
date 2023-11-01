@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body
+    class="bg-slate-400 text-[#3651c4] flex items-center justify-center min-h-screen"
+  >
+    <div
+      class="calulator w-full max-w-md select-none px-3 md:px-0 border border-black"
+    >
+      <div
+        id="display"
+        class="w-full h-28 sm:h-32 bg-[#3650c45c] mt-5 md:mt-0 flex flex-col justify-evenly items-end pr-2"
+      >
+        <div id="first-operand"></div>
+        <div id="operation"></div>
+        <div id="second-operand"></div>
+
+        <div id="result"></div>
+      </div>
+      <div class="keypad bg-white text-xl w-full px-9 py-4">
+        <div
+          class="items-center my-5 [&>*]:px-4 [&>*]:py-3 [&>*]:rounded [&>*:active]:scale-95 grid grid-cols-12 gap-4"
+        >
+          <button id="clear" class="text-white bg-red-600 col-span-5">
+            Clear
+          </button>
+          <button
+            id="delete"
+            class="border border-black text-white col-span-5 bg-lime-950"
+          >
+            DEL
+          </button>
+        </div>
+        <div class="grid grid-cols-12">
+          <div
+            class="numbers col-span-10 grid grid-cols-4 gap-9 [&>*:hover]:bg-blue-900 [&>*]:rounded [&>*:hover]:text-white [&>*:active]:scale-90"
+          >
+            <button class="border border-black p-5 data-number">1</button>
+            <button class="border border-black data-number">2</button>
+            <button class="border border-black data-number">3</button>
+            <button class="border border-black data-operation">+</button>
+            <button class="border border-black p-5 data-number">4</button>
+            <button class="border border-black data-number">5</button>
+            <button class="border border-black data-number">6</button>
+            <button class="border border-black data-operation">-</button>
+            <button class="border border-black p-5 data-number">7</button>
+            <button class="border border-black data-number">8</button>
+            <button class="border border-black data-number">9</button>
+            <button class="border border-black data-operation">÷</button>
+            <button class="border border-black p-5 data-number">0</button>
+            <button class="border border-black data-number">.</button>
+            <button id="equal" class="border border-black">=</button>
+            <button class="border border-black data-operation">*</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../script.js"></script>
+  </body>
+</html>
