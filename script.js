@@ -1,24 +1,81 @@
-// variable for calculation operation
-let firstOperand = "";
-let operation = "";
-let secondOperand = "";
+document.addEventListener("DOMContentLoaded", function () {
+  let firstOperandDisplay = document.getElementById("first-operand");
+  let secondOperandDisplay = document.getElementById("second-operand");
+  let operationDisplay = document.getElementById("operation");
+  let resultDisplay = document.getElementById("result");
 
-// Dom Elements
-let previousOperand = document.getElementById("first-operand");
-let currentOperand = document.getElementById("second-operand");
-let numberButtons = document.querySelectorAll("data-number");
-let operationButtons = document.querySelectorAll("data-operation");
-let clearButton = document.getElementById("clear");
-let deleteButton = document.getElementById("delete");
-let equalButton = document.getElementById("equal");
+  let numberButtons = document.querySelectorAll(".data-number");
+  let operationButtons = document.querySelectorAll(".data-operation");
+  let equalsButton = document.getElementById("equal");
+  let clearButton = document.getElementById("clear");
+  let deleteButton = document.getElementById("delete");
 
+  // create a variable
+  let firstNumber = "";
+  let secondNumber = "";
+  let currentOperation = "";
 
-// add eventlistener to the number
-numberButtons.forEach((button) => {
-  button.addEventListener('click', ()=>{
-    let value = button.innerText
-    console.log(value);
-    computation.updateDisplay(value);
+  // event listener
+  numberButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      if (currentOperation === "") {
+        firstNumber += this.textContent;
+        firstOperandDisplay.textContent = firstNumber;
+      } else {
+        secondNumber += this.textContent;
+        secondOperandDisplay.textContent = secondNumber;
+      }
+    });
+  });
+
+  operationButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      currentOperation = this.textContent;
+      operationDisplay.textContent = currentOperation;
+    });
+  });
+
+  equalsButton.addEventListener("click", function () {
+    let result = 0;
+    if (currentOperation === "+") {
+      result = parseFloat(firstNumber) + parseFloat(secondNumber);
+    } else if (currentOperation === "-") {
+      result = parseFloat(firstNumber) - parseFloat(secondNumber);
+    } else if (currentOperation === "*") {
+      result = parseFloat(firstNumber) * parseFloat(secondNumber);
+    } else if (currentOperation === "÷") {
+      result = parseFloat(firstNumber) / parseFloat(secondNumber);
+    }
+
+    resultDisplay.textContent = result;
+    firstNumber = "";
+    secondNumber = "";
+    currentOperation = "";
+    firstOperandDisplay.textContent = "";
+    secondOperandDisplay.textContent = "";
+    operationDisplay.textContent = "";
+  });
+
+  clearButton.addEventListener("click", function () {
+    firstNumber = "";
+    secondNumber = "";
+    currentOperation = "";
+    firstOperandDisplay.textContent = "";
+    secondOperandDisplay.textContent = "";
+    operationDisplay.textContent = "";
+    resultDisplay.textContent = "";
+  });
+  deleteButton.addEventListener("click", function () {
+    if (secondNumber) {
+      secondNumber = secondNumber.slice(0, -1);
+      secondOperandDisplay.textContent = secondNumber;
+    } else if (currentOperation) {
+      currentOperation = "";
+      operationDisplay.textContent = "";
+    } else if (firstNumber) {
+      firstNumber = firstNumber.slice(0, -1);
+      firstOperandDisplay.textContent = firstNumber;
+    }
   });
 });
 
@@ -61,7 +118,6 @@ function divide(a, b) {
     return a / b;
   }
 }
-
 
 // Testing in the console
 // const a = 10;
